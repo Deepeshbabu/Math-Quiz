@@ -32,3 +32,50 @@ function send()
     document.getElementById("number1input").value = 0 ;
     document.getElementById("number2input").value = 0 ;
 }
+
+ans_turn = "player2"
+question_turn = "player1"
+
+function check() 
+{
+    ans = document.getElementById("input_check_box").value ;
+    console.log("Answer in lowercase -" + ans) ;
+    
+    if (ans == actual_answer) 
+    {
+        if (ans_turn == "player1") 
+        {
+            p1score = p1score + 1 ;
+            document.getElementById("p1socre").innerHTML = p1score ;
+        }
+        else
+        {
+            p2score = p2score + 1 ;
+            document.getElementById("p2socre").innerHTML = p2score ;
+        }
+    }
+
+    if (question_turn == "player1") 
+    {
+        question_turn = "player2" ;
+        document.getElementById("playerquestion").innerHTML = "Question - " + p2 ;
+    }
+    else
+    {
+        question_turn = "player1" ;
+        document.getElementById("playerquestion").innerHTML = "Question - " + p1 ;
+    }
+    
+    if (ans_turn == "player1") 
+    {
+        ans_turn = "player2" ;
+        document.getElementById("playeranswer").innerHTML = "Answer - " + p2 ;
+    }
+    else
+    {
+        ans_turn = "player1" ;
+        document.getElementById("playeranswer").innerHTML = "Answer - " + p1 ;
+    }
+
+    document.getElementById("output").innerHTML = "" ;
+}
